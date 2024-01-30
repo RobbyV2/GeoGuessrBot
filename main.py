@@ -14,9 +14,6 @@ import json
 import asyncio
 import datetime
 
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-
 import discord
 from discord.ext import commands
 
@@ -88,11 +85,12 @@ async def invite(interaction: discord.Interaction):
 
 @bot.tree.command(name="get_code", description="Sends a GeoGuessr lobby join code.")
 async def getcode(interaction: discord.Interaction):
-    await interaction.response.send_message("Please wait.. This will take a while...", ephemeral=True)
+    await interaction.response.send_message("Please wait..", ephemeral=True)
     try:
         loop = asyncio.get_event_loop()
         code = await loop.run_in_executor(None, getCode)
-        code = "GeoGuessr Lobby Code\nhttps://geoguessr.com/join/\n`" + code + "`"
+        
+        code = f"GeoGuessr Lobby Link\nhttps://www.geoguessr.com/join/{code}?s=Url"
         await interaction.followup.send(content=code, ephemeral=True)
     except Exception as e:
         await interaction.followup.send(content=f"An error occurred:\n```bash\n{e}```", ephemeral=True)
