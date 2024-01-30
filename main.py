@@ -1,7 +1,6 @@
 """
 TODO:
 One lobby at a time unless geoguessr supports otherwise.
-Mode switching (invite button changes & only admins).
 Async loading of geoguessr pro accounts, make a db of codes that are in use with players, if the code exists, use another account, otherwise send an existing one and warn the player, add to info as well.
 Add generic useful geoguessr utilities.
 Fix long wait times through some means (get cookie, set cookie, api calls).
@@ -10,7 +9,6 @@ Switch to use cogs for each command.
 Loading screen in terminal.
 
 INFO:
-Currently, it's set the team duels on the account, so that's what shows up by default on the code.
 """
 
 import json
